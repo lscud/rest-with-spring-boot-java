@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class MathController {
 
     @RequestMapping(value="/sum/{numberOne}/{numberTwo}", method = RequestMethod.GET)
-    public Double sum(@PathVariable(value = "numberOne") String numberOne, @PathVariable(value = "numberTwo") String numberTwo) throws Exception{
-        if(!isNumeric(numberOne) || !isNumeric(numberTwo)){
-            throw new UnsupportedMathOperationException("Please set a numeric value");
-        }
+    public Double sum(@PathVariable(value = "numberOne") String numberOne, @PathVariable(value = "numberTwo") String numberTwo) {
+        if (!isNumeric(numberOne) || !isNumeric(numberTwo)) {
+                throw new UnsupportedMathOperationException("Error input");
+            }
         return convertToDouble(numberOne) + convertToDouble(numberTwo);
     }
 
